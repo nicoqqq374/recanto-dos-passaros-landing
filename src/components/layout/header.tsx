@@ -33,6 +33,12 @@ export function Header() {
 
   const navLinks = [
     {
+      href: "#cafe",
+      shortLabel: "Café Colonial",
+      fullLabel: "Café Colonial",
+      visibility: "flex",
+    },
+    {
       href: "#chales",
       shortLabel: "Chalés",
       fullLabel: "Chalés & Suítes",
@@ -48,13 +54,7 @@ export function Header() {
       href: "#lazer",
       shortLabel: "Lazer",
       fullLabel: "Lazer & Day Use",
-      visibility: "flex",
-    },
-    {
-      href: "#cafe",
-      shortLabel: "Café Colonial",
-      fullLabel: "Café Colonial",
-      visibility: "hidden min-[1500px]:flex",
+      visibility: "hidden xl:flex",
     },
     {
       href: "#pet-friendly",

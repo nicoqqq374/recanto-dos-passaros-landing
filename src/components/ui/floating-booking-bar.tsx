@@ -13,7 +13,9 @@ export function FloatingBookingBar() {
   const handleBookingAction = () => {
     const el = document.getElementById("reservas");
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -75;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     } else {
       openBooking();
     }

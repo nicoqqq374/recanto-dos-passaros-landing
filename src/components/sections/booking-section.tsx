@@ -77,7 +77,7 @@ export function BookingSection() {
 
   return (
     <section
-      id="reservas"
+      id="secao-reservas"
       className="relative pt-4 sm:pt-8 lg:pt-10 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-transparent overflow-hidden"
     >
       {/* Warm ambient glows */}
@@ -118,8 +118,11 @@ export function BookingSection() {
           </div>
         </div>
 
-        {/* Luxury App-Style Container Frame */}
-        <div className="rounded-[2rem] sm:rounded-[2.2rem] p-2 sm:p-3 bg-[#050B07]/90 border border-[#C29D59]/35 shadow-[0_25px_60px_rgba(0,0,0,0.7)] backdrop-blur-2xl overflow-hidden transition-all duration-300">
+        {/* Luxury App-Style Container Frame — Direct Booking Engine Target */}
+        <div
+          id="reservas"
+          className="scroll-mt-20 sm:scroll-mt-24 rounded-[2rem] sm:rounded-[2.2rem] p-2 sm:p-3 bg-[#050B07]/90 border border-[#C29D59]/35 shadow-[0_25px_60px_rgba(0,0,0,0.7)] backdrop-blur-2xl overflow-hidden transition-all duration-300"
+        >
           {/* App Chrome Top Bar */}
           <div className="rounded-t-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 bg-[#0A140F] border-b border-white/10 flex items-center justify-between gap-2">
             {/* Left: Window Dots & Status */}

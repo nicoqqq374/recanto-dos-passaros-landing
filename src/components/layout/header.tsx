@@ -148,7 +148,9 @@ export function Header() {
             onClick={() => {
               const el = document.getElementById("reservas");
               if (el) {
-                el.scrollIntoView({ behavior: "smooth" });
+                const yOffset = -75;
+                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
               } else {
                 openBooking();
               }
@@ -165,7 +167,16 @@ export function Header() {
         <div className="flex items-center gap-2 lg:hidden">
           <button
             type="button"
-            onClick={() => openBooking()}
+            onClick={() => {
+              const el = document.getElementById("reservas");
+              if (el) {
+                const yOffset = -70;
+                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              } else {
+                openBooking();
+              }
+            }}
             className="sm:hidden flex items-center justify-center gap-1.5 min-h-[44px] px-4 py-2 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] font-bold text-xs shadow-md active:scale-95 transition-transform cursor-pointer"
           >
             <Calendar className="w-3.5 h-3.5 text-[#050B07] shrink-0" />
@@ -237,7 +248,14 @@ export function Header() {
                     type="button"
                     onClick={() => {
                       setMobileMenuOpen(false);
-                      openBooking();
+                      const el = document.getElementById("reservas");
+                      if (el) {
+                        const yOffset = -70;
+                        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                        window.scrollTo({ top: y, behavior: "smooth" });
+                      } else {
+                        openBooking();
+                      }
                     }}
                     className="flex items-center justify-center gap-2 min-h-[48px] py-3 px-4 rounded-xl bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] font-bold text-sm shadow-md active:scale-[0.98] transition-all cursor-pointer"
                   >

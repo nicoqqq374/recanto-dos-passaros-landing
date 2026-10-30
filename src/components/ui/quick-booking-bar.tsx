@@ -110,7 +110,9 @@ export function QuickBookingBar() {
     // Smooth scroll directly to the embedded SaaS booking engine
     const el = document.getElementById("reservas");
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -75;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     } else {
       openBooking(roomId, roomName, checkIn, checkOut, guests);
     }

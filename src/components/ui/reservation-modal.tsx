@@ -99,9 +99,16 @@ export function ReservationModal() {
     params.set("quarto", selectedRoomId);
     params.set("roomId", selectedRoomId);
     params.set("room_id", selectedRoomId);
+    params.set("accommodationUnitId", selectedRoomId);
+    params.set("step", "3");
+    params.set("etapa", "3");
     if (selectedRoomName) {
       params.set("room", selectedRoomName);
+      params.set("roomName", selectedRoomName);
     }
+  } else {
+    params.set("step", "2");
+    params.set("etapa", "2");
   }
 
   const embedUrl = `${baseUrl}?${params.toString()}`;

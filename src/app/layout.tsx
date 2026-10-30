@@ -64,12 +64,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=2", sizes: "any" },
-      { url: "/icon-32.png?v=2", sizes: "32x32", type: "image/png" },
-      { url: "/icon-16.png?v=2", sizes: "16x16", type: "image/png" },
+      { url: "/icon-32.png?v=4", sizes: "32x32", type: "image/png" },
+      { url: "/icon-16.png?v=4", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico?v=4", sizes: "any" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png?v=4", sizes: "180x180", type: "image/png" },
     ],
   },
 };
@@ -82,11 +82,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${serifFont.variable} ${sansFont.variable} scroll-smooth`}>
       <head>
-        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-        <link rel="icon" href="/icon-32.png?v=2" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/icon-16.png?v=2" type="image/png" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
-        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="icon" href="/icon-32.png?v=4" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/icon-16.png?v=4" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon.ico?v=4" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4" sizes="180x180" />
+        <link rel="manifest" href="/manifest.webmanifest?v=4" />
       </head>
       <body className="font-sans bg-[#050B07] text-white antialiased selection:bg-[#C29D59] selection:text-[#050B07]">
         <BookingProvider>

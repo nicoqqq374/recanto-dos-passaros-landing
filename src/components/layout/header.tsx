@@ -54,13 +54,13 @@ export function Header() {
       href: "#cafe",
       shortLabel: "Café Colonial",
       fullLabel: "Café Colonial",
-      visibility: "hidden 2xl:flex",
+      visibility: "hidden min-[1500px]:flex",
     },
     {
       href: "#pet-friendly",
       shortLabel: "Pet Friendly",
       fullLabel: "Pet Friendly",
-      visibility: "hidden xl:flex",
+      visibility: "hidden min-[1500px]:flex",
     },
     {
       href: "#avaliacoes",
@@ -75,13 +75,13 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#050B07]/85 backdrop-blur-2xl border-b border-[#C29D59]/25 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#050B07]/90 backdrop-blur-2xl border-b border-[#C29D59]/25 ${
         isScrolled
-          ? "py-2 shadow-[0_12px_40px_rgba(0,0,0,0.4)]"
-          : "py-2.5 sm:py-3 shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+          ? "py-2 shadow-[0_12px_40px_rgba(0,0,0,0.5)]"
+          : "py-2.5 sm:py-3 shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
       }`}
     >
-      <div className="max-w-[1440px] w-full mx-auto px-3 sm:px-5 lg:px-6 xl:px-8 flex items-center justify-between gap-2 sm:gap-3 xl:gap-4">
+      <div className="max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-6 xl:px-8 flex items-center justify-between gap-2 sm:gap-3 xl:gap-4">
         
         {/* Brand Logo & Wordmark */}
         <Link
@@ -114,7 +114,7 @@ export function Header() {
         {/* Desktop Navigation Links (Responsive layout that never pushes buttons off) */}
         <nav
           aria-label="Principal"
-          className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-2 text-[11.5px] xl:text-xs 2xl:text-sm font-medium text-zinc-200 shrink-0"
+          className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 text-xs xl:text-[13px] font-medium text-zinc-200 shrink min-w-0"
         >
           {navLinks.map((link) => (
             <Link
@@ -122,14 +122,14 @@ export function Header() {
               href={link.href}
               className={`transition-all duration-200 relative min-h-[36px] xl:min-h-[38px] px-2 xl:px-2.5 2xl:px-3 py-1 rounded-full items-center text-zinc-300 hover:text-white hover:bg-white/10 active:scale-95 whitespace-nowrap ${link.visibility}`}
             >
-              <span className="2xl:hidden">{link.shortLabel}</span>
-              <span className="hidden 2xl:inline">{link.fullLabel}</span>
+              <span className="min-[1680px]:hidden">{link.shortLabel}</span>
+              <span className="hidden min-[1680px]:inline">{link.fullLabel}</span>
             </Link>
           ))}
         </nav>
 
         {/* Desktop Header Actions (Guaranteed 100% visible on all desktop viewports) */}
-        <div className="hidden sm:flex items-center gap-1.5 xl:gap-2.5 shrink-0">
+        <div className="hidden sm:flex items-center gap-1.5 xl:gap-2.5 shrink-0 ml-auto">
           {/* WhatsApp Direct — Luxury Editorial Palette */}
           <a
             href={WHATSAPP_URL}
@@ -158,8 +158,8 @@ export function Header() {
             className="flex items-center gap-1.5 xl:gap-2 min-h-[36px] xl:min-h-[40px] px-3.5 xl:px-4 py-1.5 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] font-bold text-xs xl:text-sm shadow-[0_0_20px_rgba(194,157,89,0.35)] hover:shadow-[0_0_30px_rgba(194,157,89,0.55)] transition-all hover:scale-[1.02] cursor-pointer active:scale-95 whitespace-nowrap shrink-0"
           >
             <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#050B07] shrink-0" />
-            <span className="hidden 2xl:inline">Reservar Chalé</span>
-            <span className="2xl:hidden">Reservar</span>
+            <span className="hidden min-[1680px]:inline">Reservar Chalé</span>
+            <span className="min-[1680px]:hidden">Reservar</span>
           </button>
         </div>
 

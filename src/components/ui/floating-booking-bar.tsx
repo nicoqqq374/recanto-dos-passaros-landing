@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Calendar } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { useBooking } from "@/context/booking-context";
@@ -9,6 +9,23 @@ export function FloatingBookingBar() {
   const { openBooking, rooms } = useBooking();
   const prices = rooms.map((room) => room.price).filter((price) => price > 0);
   const minimumPrice = prices.length ? Math.min(...prices) : 300;
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const target = document.getElementById("reservas");
+    if (!target) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // When booking engine enters the screen, hide the floating bar so it never covers the form
+        setIsVisible(!entry.isIntersecting);
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
 
   const handleBookingAction = () => {
     const el = document.getElementById("reservas");
@@ -25,7 +42,11 @@ export function FloatingBookingBar() {
     <div
       role="region"
       aria-label="Barra de reserva rápida"
-      className="fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] sm:bottom-6 left-0 right-0 z-40 flex justify-center px-3 sm:px-4 pointer-events-none"
+      className={`fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] sm:bottom-6 left-0 right-0 z-40 flex justify-center px-3 sm:px-4 pointer-events-none transition-all duration-300 ${
+        isVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 pointer-events-none translate-y-8"
+      }`}
     >
       <div className="pointer-events-auto w-full max-w-[430px] sm:w-auto sm:max-w-fit pl-4 pr-2.5 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#122218]/95 backdrop-blur-2xl border border-[#C29D59]/45 hover:border-[#C29D59]/70 shadow-[0_16px_42px_rgba(20,34,26,0.38)] flex items-center justify-between gap-3 sm:gap-5 text-white transition-all duration-300">
         

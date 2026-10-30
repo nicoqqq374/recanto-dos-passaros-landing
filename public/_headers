@@ -45,7 +45,22 @@
 /*.mp4
   Cache-Control: public, max-age=31536000, immutable
 
-# Fresh HTML delivery with immediate deployment reflection
+# Fresh HTML and Favicons delivery with immediate deployment reflection
+/favicon.ico*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/icon*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/apple*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/logo*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/manifest*
+  Cache-Control: public, max-age=0, must-revalidate
+
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
 

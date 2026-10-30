@@ -65,12 +65,22 @@ export function BookingSection() {
       params.set("unitId", selectedRoomId);
       params.set("quarto", selectedRoomId);
       params.set("roomId", selectedRoomId);
+      params.set("room", selectedRoomId);
+      params.set("accommodationUnitId", selectedRoomId);
+      if (selectedRoomName) {
+        params.set("roomName", selectedRoomName);
+        params.set("quartoNome", selectedRoomName);
+      }
+      // Enter directly to Step 3 with the room and dates locked in (zero re-entries)
+      params.set("step", "3");
+      params.set("etapa", "3");
+    } else {
       params.set("step", "2");
       params.set("etapa", "2");
     }
 
     return `${BOOKING_EMBED_URL}?${params.toString()}`;
-  }, [checkInDate, checkOutDate, guestsCount, selectedRoomId]);
+  }, [checkInDate, checkOutDate, guestsCount, selectedRoomId, selectedRoomName]);
 
   const WHATSAPP_URL =
     "https://wa.me/5522981054265?text=Ol%C3%A1%2C%20gostaria%20de%20ajuda%20para%20minha%20reserva%20na%20Pousada%20Recanto%20dos%20P%C3%A1ssaros.";

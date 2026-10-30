@@ -31,7 +31,7 @@ export function ManifestoSection() {
       tag: "Hóspede de Honra",
       description:
         "Viajar por inteiro, sem a dor de deixar ninguém para trás. Gramados amplos para farejar e correr solto, ambiente seguro longe de carros e remansos de água rasa no rio onde os cachorros nadam felizes ao seu lado.",
-      image: "/recanto/pet-natureza.jpg",
+      image: "/recanto/pet-natureza-fofo.jpg",
       highlight: "Muito verde e acolhimento sincero para o seu pet",
     },
   ];

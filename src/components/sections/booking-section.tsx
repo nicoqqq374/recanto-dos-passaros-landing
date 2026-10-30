@@ -7,10 +7,6 @@ import {
   Maximize2,
   Lock,
   Smartphone,
-  ShieldCheck,
-  Zap,
-  Sparkles,
-  Filter,
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { BOOKING_EMBED_URL, TENANT_SLUG } from "@/lib/saas-rooms";
@@ -110,22 +106,6 @@ export function BookingSection() {
           <p className="mt-2 text-zinc-300 text-[15px] sm:text-base font-light leading-relaxed max-w-[56ch] mx-auto">
             Consulte a disponibilidade ao vivo, escolha seu chalé e garanta sua reserva direta com confirmação imediata, café da roça incluso e todos os mimos da pousada.
           </p>
-
-          {/* Micro-chips in single compact row */}
-          <div className="mt-3.5 flex flex-wrap items-center justify-center gap-2 text-xs text-white">
-            <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0A140F]/80 backdrop-blur-md border border-[#C29D59]/30 shadow-xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#E6C994] shrink-0" />
-              <span>Reserva Direta Sem Taxas</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0A140F]/80 backdrop-blur-md border border-[#C29D59]/30 shadow-xs">
-              <Zap className="w-3.5 h-3.5 text-[#C29D59] shrink-0" />
-              <span>Confirmação Imediata via Pix</span>
-            </div>
-            <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#0A140F]/80 backdrop-blur-md border border-[#C29D59]/30 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#E6C994] shrink-0" />
-              <span>Melhor Tarifa Oficial Garantida</span>
-            </div>
-          </div>
         </div>
 
         {/* Luxury App-Style Container Frame — Direct Booking Engine Target */}

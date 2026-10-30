@@ -32,12 +32,42 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { href: "#chales", label: "Chalés & Suítes", alwaysShow: true },
-    { href: "#rio", label: "O Rio & Piscinas", alwaysShow: true },
-    { href: "#lazer", label: "Lazer & Day Use", alwaysShow: true },
-    { href: "#cafe", label: "Café Colonial", alwaysShow: false },
-    { href: "#pet-friendly", label: "Pet Friendly", alwaysShow: false },
-    { href: "#avaliacoes", label: "Avaliações 9.1", alwaysShow: true },
+    {
+      href: "#chales",
+      shortLabel: "Chalés",
+      fullLabel: "Chalés & Suítes",
+      visibility: "flex",
+    },
+    {
+      href: "#rio",
+      shortLabel: "Rio & Piscinas",
+      fullLabel: "O Rio & Piscinas",
+      visibility: "flex",
+    },
+    {
+      href: "#lazer",
+      shortLabel: "Lazer",
+      fullLabel: "Lazer & Day Use",
+      visibility: "flex",
+    },
+    {
+      href: "#cafe",
+      shortLabel: "Café Colonial",
+      fullLabel: "Café Colonial",
+      visibility: "hidden 2xl:flex",
+    },
+    {
+      href: "#pet-friendly",
+      shortLabel: "Pet Friendly",
+      fullLabel: "Pet Friendly",
+      visibility: "hidden xl:flex",
+    },
+    {
+      href: "#avaliacoes",
+      shortLabel: "Avaliações",
+      fullLabel: "Avaliações 9.1",
+      visibility: "flex",
+    },
   ];
 
   const WHATSAPP_URL =
@@ -84,32 +114,31 @@ export function Header() {
         {/* Desktop Navigation Links (Responsive layout that never pushes buttons off) */}
         <nav
           aria-label="Principal"
-          className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 2xl:gap-2 text-xs xl:text-[13px] 2xl:text-sm font-medium text-zinc-200 shrink min-w-0"
+          className="hidden lg:flex items-center gap-0.5 xl:gap-1 2xl:gap-2 text-[11.5px] xl:text-xs 2xl:text-sm font-medium text-zinc-200 shrink-0"
         >
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`transition-all duration-200 relative min-h-[38px] px-2.5 xl:px-3 py-1.5 rounded-full flex items-center text-zinc-300 hover:text-white hover:bg-white/10 active:scale-95 whitespace-nowrap ${
-                link.alwaysShow ? "flex" : "hidden xl:flex"
-              }`}
+              className={`transition-all duration-200 relative min-h-[36px] xl:min-h-[38px] px-2 xl:px-2.5 2xl:px-3 py-1 rounded-full items-center text-zinc-300 hover:text-white hover:bg-white/10 active:scale-95 whitespace-nowrap ${link.visibility}`}
             >
-              {link.label}
+              <span className="2xl:hidden">{link.shortLabel}</span>
+              <span className="hidden 2xl:inline">{link.fullLabel}</span>
             </Link>
           ))}
         </nav>
 
         {/* Desktop Header Actions (Guaranteed 100% visible on all desktop viewports) */}
-        <div className="hidden sm:flex items-center gap-2 xl:gap-2.5 shrink-0">
+        <div className="hidden sm:flex items-center gap-1.5 xl:gap-2.5 shrink-0">
           {/* WhatsApp Direct — Luxury Editorial Palette */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 xl:gap-2 min-h-[38px] xl:min-h-[42px] px-3 xl:px-4 py-1.5 xl:py-2 rounded-full text-xs xl:text-sm font-semibold transition-all hover:scale-[1.02] active:scale-95 bg-white/10 hover:bg-[#1B3B2B] text-white border border-[#C29D59]/35 hover:border-[#C29D59]/70 shadow-xs cursor-pointer group"
+            className="flex items-center gap-1.5 xl:gap-2 min-h-[36px] xl:min-h-[40px] px-2.5 xl:px-3.5 py-1.5 rounded-full text-xs xl:text-sm font-semibold transition-all hover:scale-[1.02] active:scale-95 bg-white/10 hover:bg-[#1B3B2B] text-white border border-[#C29D59]/35 hover:border-[#C29D59]/70 shadow-xs cursor-pointer group whitespace-nowrap"
             aria-label="Falar no WhatsApp"
           >
-            <WhatsAppIcon className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#E6C994] group-hover:scale-110 transition-transform" />
+            <WhatsAppIcon className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#E6C994] group-hover:scale-110 transition-transform shrink-0" />
             <span>WhatsApp</span>
           </a>
 
@@ -124,11 +153,11 @@ export function Header() {
                 openBooking();
               }
             }}
-            className="flex items-center gap-1.5 xl:gap-2 min-h-[38px] xl:min-h-[42px] px-4 xl:px-5 py-1.5 xl:py-2 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] font-bold text-xs xl:text-sm shadow-[0_0_20px_rgba(194,157,89,0.35)] hover:shadow-[0_0_30px_rgba(194,157,89,0.55)] transition-all hover:scale-[1.02] cursor-pointer active:scale-95 whitespace-nowrap"
+            className="flex items-center gap-1.5 xl:gap-2 min-h-[36px] xl:min-h-[40px] px-3.5 xl:px-4 py-1.5 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] font-bold text-xs xl:text-sm shadow-[0_0_20px_rgba(194,157,89,0.35)] hover:shadow-[0_0_30px_rgba(194,157,89,0.55)] transition-all hover:scale-[1.02] cursor-pointer active:scale-95 whitespace-nowrap shrink-0"
           >
-            <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#050B07]" />
-            <span className="hidden xl:inline">Reservar Chalé</span>
-            <span className="xl:hidden">Reservar</span>
+            <Calendar className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-[#050B07] shrink-0" />
+            <span className="hidden 2xl:inline">Reservar Chalé</span>
+            <span className="2xl:hidden">Reservar</span>
           </button>
         </div>
 
@@ -188,7 +217,7 @@ export function Header() {
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between min-h-[48px] px-3.5 py-3 rounded-xl text-[15px] font-semibold text-zinc-100 hover:bg-white/10 active:bg-white/15 active:scale-[0.99] transition-all border-b border-white/5 last:border-b-0"
                   >
-                    <span>{link.label}</span>
+                    <span>{link.fullLabel}</span>
                     <ChevronRight className="w-4 h-4 text-[#C29D59]" />
                   </Link>
                 ))}

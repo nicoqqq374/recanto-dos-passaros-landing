@@ -29,18 +29,20 @@ export function QuickBookingBar() {
 
   const [checkIn, setCheckIn] = useState<string>(defaultCheckIn);
   const [checkOut, setCheckOut] = useState<string>(defaultCheckOut);
-  const [selectedRoomId, setSelectedRoomId] = useState<string>("all");
+  const [selectedRoomId, setSelectedRoomId] = useState<string>(rooms[0]?.id || "");
   const [guests, setGuests] = useState<string>("2");
 
   // Keep context in sync on mount
   useEffect(() => {
+    const defaultRoom = rooms[0];
     setFilters({
       checkIn: defaultCheckIn,
       checkOut: defaultCheckOut,
       guests: "2",
-      roomId: null,
+      roomId: defaultRoom?.id || null,
+      roomName: defaultRoom?.name || null,
     });
-  }, [setFilters, defaultCheckIn, defaultCheckOut]);
+  }, [setFilters, defaultCheckIn, defaultCheckOut, rooms]);
 
   // Date Range Modal state
   const [isDateModalOpen, setIsDateModalOpen] = useState(false);
@@ -84,17 +86,13 @@ export function QuickBookingBar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const selectedRoom = rooms.find((r) => r.id === selectedRoomId);
+  const selectedRoom = rooms.find((r) => r.id === selectedRoomId) || rooms[0];
 
   const handleSelectRoom = (roomId: string) => {
     setSelectedRoomId(roomId);
     setIsRoomDropdownOpen(false);
-    if (roomId === "all") {
-      setFilters({ roomId: null, roomName: null });
-    } else {
-      const room = rooms.find((r) => r.id === roomId);
-      setFilters({ roomId, roomName: room?.name });
-    }
+    const room = rooms.find((r) => r.id === roomId);
+    setFilters({ roomId, roomName: room?.name });
   };
 
   const handleSelectGuests = (count: string) => {
@@ -183,7 +181,7 @@ export function QuickBookingBar() {
                     Acomodação
                   </span>
                   <span className="text-xs font-semibold text-white truncate">
-                    {selectedRoom ? selectedRoom.name : "Todas as Acomodações"}
+                    {selectedRoom ? selectedRoom.name : "Selecione o Chalé"}
                   </span>
                 </div>
               </div>
@@ -206,29 +204,6 @@ export function QuickBookingBar() {
                   <span className="uppercase tracking-wider font-semibold text-[#E6C994]">Escolha o Chalé</span>
                   <span>{rooms.length} disponíveis</span>
                 </div>
-
-                <button
-                  type="button"
-                  role="option"
-                  aria-selected={selectedRoomId === "all"}
-                  onClick={() => handleSelectRoom("all")}
-                  className={`w-full min-h-[48px] flex items-center justify-between p-2.5 rounded-xl text-left text-xs font-semibold transition-all mb-1.5 cursor-pointer active:scale-[0.99] ${
-                    selectedRoomId === "all"
-                      ? "bg-[#1B3B2B] text-white font-bold border border-[#C29D59]/50 shadow-xs"
-                      : "text-zinc-300 hover:bg-white/10 hover:text-white"
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#E6C994]">
-                      <Sparkles className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-white">Todas as Acomodações</div>
-                      <div className="text-[10px] text-zinc-400 font-normal">Exibir catálogo completo no SaaS</div>
-                    </div>
-                  </div>
-                  {selectedRoomId === "all" && <Check className="w-4 h-4 text-[#C29D59]" />}
-                </button>
 
                 {rooms.map((room) => (
                   <button

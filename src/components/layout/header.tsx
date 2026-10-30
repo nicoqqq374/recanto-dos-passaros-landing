@@ -81,14 +81,14 @@ export function Header() {
           : "py-2.5 sm:py-3 shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
       }`}
     >
-      <div className="max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-6 xl:px-8 flex items-center justify-between gap-2 sm:gap-3 xl:gap-4">
+      <div className="max-w-[1536px] w-full mx-auto px-3 sm:px-5 lg:px-6 xl:px-8 flex items-center justify-between gap-1.5 sm:gap-3 xl:gap-4">
         
-        {/* Brand Logo & Wordmark */}
+        {/* Brand Logo & Wordmark (Fluid scaling with min-w-0 to guarantee mobile buttons never overflow) */}
         <Link
           href="#"
-          className="flex items-center gap-2 sm:gap-2.5 group shrink-0 select-none rounded-xl py-0.5"
+          className="flex items-center gap-1.5 sm:gap-2.5 group shrink min-w-0 select-none rounded-xl py-0.5"
         >
-          <div className="relative w-9 h-9 sm:w-11 sm:h-11 shrink-0 aspect-square overflow-hidden rounded-full shadow-xs group-hover:scale-105 transition-transform duration-300">
+          <div className="relative w-8 h-8 sm:w-11 sm:h-11 shrink-0 aspect-square overflow-hidden rounded-full shadow-xs group-hover:scale-105 transition-transform duration-300">
             <Image
               src="/logo.png"
               alt="Logo Pousada Recanto dos Pássaros Sana Chalés"
@@ -99,14 +99,14 @@ export function Header() {
             />
           </div>
 
-          <div className="flex flex-col text-left">
-            <span className="font-serif text-[14px] sm:text-base xl:text-lg 2xl:text-xl font-bold tracking-tight text-white group-hover:text-[#E6C994] transition-colors whitespace-nowrap leading-tight">
+          <div className="flex flex-col text-left min-w-0">
+            <span className="font-serif text-[13px] sm:text-base xl:text-lg 2xl:text-xl font-bold tracking-tight text-white group-hover:text-[#E6C994] transition-colors truncate leading-tight">
               Recanto dos Pássaros
             </span>
-            <span className="text-[8.5px] sm:text-[9.5px] tracking-widest uppercase font-bold text-[#E6C994] whitespace-nowrap flex items-center gap-1.5 mt-0.5">
-              <span>Sana Chalés</span>
+            <span className="text-[7.5px] sm:text-[9.5px] tracking-wider uppercase font-bold text-[#E6C994] truncate flex items-center gap-1 mt-0.5">
+              <span>Sana</span>
               <span className="opacity-40">•</span>
-              <span>Sana · Macaé RJ</span>
+              <span>Macaé RJ</span>
             </span>
           </div>
         </Link>
@@ -163,8 +163,8 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Controls (Ergonomic >= 44x44px Touch Targets) */}
-        <div className="flex items-center gap-2 lg:hidden">
+        {/* Mobile Controls (Guaranteed 100% visible on all mobile screens — shrink-0 and compact touch targets) */}
+        <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden shrink-0 ml-auto">
           <button
             type="button"
             onClick={() => {
@@ -177,7 +177,7 @@ export function Header() {
                 openBooking();
               }
             }}
-            className="sm:hidden flex items-center justify-center gap-1.5 min-h-[44px] px-4 py-2 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] font-bold text-xs shadow-md active:scale-95 transition-transform cursor-pointer"
+            className="flex items-center justify-center gap-1 min-h-[38px] px-2.5 sm:px-3.5 py-1.5 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] font-bold text-xs shadow-md active:scale-95 transition-transform cursor-pointer shrink-0"
           >
             <Calendar className="w-3.5 h-3.5 text-[#050B07] shrink-0" />
             <span>Reservar</span>
@@ -188,7 +188,7 @@ export function Header() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-nav-drawer"
-            className="min-w-[44px] min-h-[44px] p-2.5 rounded-xl border border-white/20 bg-white/10 active:bg-white/20 text-white flex items-center justify-center transition-all active:scale-95 cursor-pointer"
+            className="min-w-[38px] min-h-[38px] w-9.5 h-9.5 sm:w-10 sm:h-10 rounded-xl border border-white/20 bg-white/10 active:bg-white/20 text-white flex items-center justify-center transition-all active:scale-95 cursor-pointer shrink-0"
             aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
             {mobileMenuOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}

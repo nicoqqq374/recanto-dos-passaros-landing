@@ -118,7 +118,7 @@ export function BreakfastSection() {
               <button
                 type="button"
                 onClick={handleScrollToRooms}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] font-bold text-sm shadow-[0_0_25px_rgba(194,157,89,0.35)] hover:shadow-[0_0_35px_rgba(194,157,89,0.55)] transition-all hover:scale-[1.02] active:scale-95 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] font-bold text-sm shadow-[0_0_25px_rgba(194,157,89,0.35)] hover:shadow-[0_0_35px_rgba(194,157,89,0.55)] transition-all hover:scale-[1.02] active:scale-95 cursor-pointer text-center"
               >
                 <span>Ver Chalés com Café Colonial Incluso</span>
                 <ArrowRight className="w-4 h-4 text-[#050B07]" />

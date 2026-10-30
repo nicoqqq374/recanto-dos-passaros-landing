@@ -13,17 +13,20 @@ export function FloatingBookingBar() {
 
   useEffect(() => {
     const target = document.getElementById("reservas");
-    if (!target) return;
+    const footer = document.querySelector("footer");
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        // When booking engine enters the screen, hide the floating bar so it never covers the form
-        setIsVisible(!entry.isIntersecting);
+      (entries) => {
+        // When booking engine or footer enters the screen, hide the floating bar so it never covers forms or copyright/contact
+        const isCovering = entries.some((entry) => entry.isIntersecting);
+        setIsVisible(!isCovering);
       },
-      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
     );
 
-    observer.observe(target);
+    if (target) observer.observe(target);
+    if (footer) observer.observe(footer);
+
     return () => observer.disconnect();
   }, []);
 

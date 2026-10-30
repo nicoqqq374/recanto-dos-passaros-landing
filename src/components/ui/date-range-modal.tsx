@@ -261,11 +261,11 @@ export function DateRangeModal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-[#14221A]/60 backdrop-blur-md transition-opacity overscroll-contain"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity overscroll-contain"
             aria-hidden="true"
           />
 
-          {/* Modal Container in Warm Luxury Palette */}
+          {/* Modal Container in Dark Luxury Palette (matching SaaS Booking theme=dark) */}
           <motion.div
             role="dialog"
             aria-modal="true"
@@ -274,24 +274,24 @@ export function DateRangeModal({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.96 }}
             transition={{ type: "spring", damping: 28, stiffness: 320 }}
-            className="relative w-full max-w-md mx-auto bg-gradient-to-b from-[#FFFFFF] via-[#FAF7F2] to-[#F4EFE6] border-t sm:border border-[#C29D59]/35 rounded-t-[2.2rem] sm:rounded-3xl p-5 sm:p-7 shadow-[0_25px_60px_rgba(20,34,26,0.2),0_0_35px_rgba(194,157,89,0.15)] z-10 max-h-[90dvh] flex flex-col overflow-y-auto overscroll-contain pb-[max(1.25rem,env(safe-area-inset-bottom))]"
+            className="relative w-full max-w-md mx-auto bg-gradient-to-b from-[#0B140F] via-[#070D09] to-[#040805] border-t sm:border border-[#C29D59]/40 rounded-t-[2.2rem] sm:rounded-3xl p-5 sm:p-7 shadow-[0_25px_70px_rgba(0,0,0,0.85),0_0_40px_rgba(194,157,89,0.15)] z-10 max-h-[90dvh] flex flex-col overflow-y-auto overscroll-contain pb-[max(1.25rem,env(safe-area-inset-bottom))]"
           >
             {/* Mobile Drag Indicator */}
             <div className="w-full flex sm:hidden justify-center pb-2.5 -mt-1" aria-hidden="true">
-              <div className="w-12 h-1 rounded-full bg-[#14221A]/20" />
+              <div className="w-12 h-1 rounded-full bg-white/20" />
             </div>
 
             {/* Modal Header */}
-            <div className="flex items-center justify-between pb-3.5 border-b border-[#14221A]/8">
+            <div className="flex items-center justify-between pb-3.5 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#1B3B2B]/8 border border-[#1B3B2B]/15 flex items-center justify-center text-[#1B3B2B] shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#1B3B2B]/60 border border-[#C29D59]/35 flex items-center justify-center text-[#E6C994] shrink-0 shadow-xs">
                   <Calendar className="w-4 h-4 text-[#C29D59]" />
                 </div>
                 <div>
-                  <h3 id="date-modal-title" className="font-serif text-lg sm:text-xl font-bold text-[#14221A] leading-tight">
+                  <h3 id="date-modal-title" className="font-serif text-lg sm:text-xl font-bold text-white leading-tight">
                     Selecionar Datas
                   </h3>
-                  <p className="text-xs text-[#536459]">
+                  <p className="text-xs text-[#E6C994]/80">
                     Pousada Recanto dos Pássaros • Sana RJ
                   </p>
                 </div>
@@ -300,28 +300,28 @@ export function DateRangeModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-black/5 hover:bg-black/10 active:bg-black/15 text-[#536459] hover:text-[#14221A] flex items-center justify-center transition-all active:scale-95 cursor-pointer"
+                className="min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-white/5 hover:bg-white/15 active:bg-white/20 text-zinc-300 hover:text-white flex items-center justify-center transition-all active:scale-95 cursor-pointer border border-white/10"
                 aria-label="Fechar calendário"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Range Indicator Cards (Warm Luxury Tabs) */}
+            {/* Range Indicator Cards (Dark Luxury Tabs) */}
             <div className="grid grid-cols-2 gap-2.5 mt-4">
               <button
                 type="button"
                 onClick={() => setTargetStep("checkIn")}
                 className={`min-h-[58px] p-3 sm:p-3.5 rounded-2xl border text-left transition-all cursor-pointer active:scale-[0.98] ${
                   targetStep === "checkIn"
-                    ? "bg-white border-[#1B3B2B] shadow-sm ring-2 ring-[#1B3B2B]/15"
-                    : "bg-white/60 border-[#14221A]/8 text-[#536459] hover:bg-white"
+                    ? "bg-[#1B3B2B]/80 border-[#C29D59] shadow-md ring-2 ring-[#C29D59]/30"
+                    : "bg-white/[0.04] border-white/10 text-zinc-300 hover:bg-white/[0.08] hover:border-white/20"
                 }`}
               >
-                <span className="text-[10px] uppercase font-bold tracking-wider text-[#9A7836] block mb-0.5">
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[#E6C994] block mb-0.5">
                   Check-in (Entrada)
                 </span>
-                <span className="font-serif text-sm sm:text-base font-bold text-[#14221A] block truncate">
+                <span className="font-serif text-sm sm:text-base font-bold text-white block truncate">
                   {formatWithWeekday(tempCheckIn)}
                 </span>
               </button>
@@ -331,19 +331,19 @@ export function DateRangeModal({
                 onClick={() => setTargetStep("checkOut")}
                 className={`min-h-[58px] p-3 sm:p-3.5 rounded-2xl border text-left transition-all cursor-pointer active:scale-[0.98] ${
                   targetStep === "checkOut"
-                    ? "bg-white border-[#1B3B2B] shadow-sm ring-2 ring-[#1B3B2B]/15"
-                    : "bg-white/60 border-[#14221A]/8 text-[#536459] hover:bg-white"
+                    ? "bg-[#1B3B2B]/80 border-[#C29D59] shadow-md ring-2 ring-[#C29D59]/30"
+                    : "bg-white/[0.04] border-white/10 text-zinc-300 hover:bg-white/[0.08] hover:border-white/20"
                 }`}
               >
                 <div className="flex items-center justify-between mb-0.5">
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#9A7836] block">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#E6C994] block">
                     Check-out (Saída)
                   </span>
-                  <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#1B3B2B]/10 text-[#1B3B2B] font-bold">
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#C29D59]/20 text-[#E6C994] font-bold border border-[#C29D59]/30">
                     {nightsCount} {nightsCount === 1 ? "noite" : "noites"}
                   </span>
                 </div>
-                <span className="font-serif text-sm sm:text-base font-bold text-[#14221A] block truncate">
+                <span className="font-serif text-sm sm:text-base font-bold text-white block truncate">
                   {formatWithWeekday(tempCheckOut)}
                 </span>
               </button>
@@ -354,7 +354,7 @@ export function DateRangeModal({
               <button
                 type="button"
                 onClick={() => handlePresetWeekend(0)}
-                className="min-h-[38px] px-3.5 py-1.5 rounded-full bg-white border border-[#C29D59]/30 hover:border-[#1B3B2B] active:scale-95 text-[#3D4F44] hover:text-[#1B3B2B] transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 text-xs font-medium shadow-2xs"
+                className="min-h-[36px] px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 hover:border-[#C29D59] hover:bg-[#1B3B2B]/40 active:scale-95 text-zinc-300 hover:text-white transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 text-xs font-medium shadow-2xs"
               >
                 <span>Este Fim de Semana</span>
               </button>
@@ -362,7 +362,7 @@ export function DateRangeModal({
               <button
                 type="button"
                 onClick={() => handlePresetWeekend(1)}
-                className="min-h-[38px] px-3.5 py-1.5 rounded-full bg-white border border-[#C29D59]/30 hover:border-[#1B3B2B] active:scale-95 text-[#3D4F44] hover:text-[#1B3B2B] transition-all whitespace-nowrap cursor-pointer text-xs font-medium shadow-2xs"
+                className="min-h-[36px] px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 hover:border-[#C29D59] hover:bg-[#1B3B2B]/40 active:scale-95 text-zinc-300 hover:text-white transition-all whitespace-nowrap cursor-pointer text-xs font-medium shadow-2xs"
               >
                 Próximo Fim de Semana
               </button>
@@ -370,7 +370,7 @@ export function DateRangeModal({
               <button
                 type="button"
                 onClick={handlePresetWeek}
-                className="min-h-[38px] px-3.5 py-1.5 rounded-full bg-white border border-[#C29D59]/30 hover:border-[#1B3B2B] active:scale-95 text-[#3D4F44] hover:text-[#1B3B2B] transition-all whitespace-nowrap cursor-pointer text-xs font-medium shadow-2xs"
+                className="min-h-[36px] px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 hover:border-[#C29D59] hover:bg-[#1B3B2B]/40 active:scale-95 text-zinc-300 hover:text-white transition-all whitespace-nowrap cursor-pointer text-xs font-medium shadow-2xs"
               >
                 7 Noites
               </button>
@@ -382,24 +382,24 @@ export function DateRangeModal({
                 type="button"
                 onClick={handlePrevMonth}
                 disabled={isCurrentMonthOrPast}
-                className={`min-w-[44px] min-h-[44px] p-2.5 rounded-xl border border-[#14221A]/10 flex items-center justify-center transition-all ${
+                className={`min-w-[44px] min-h-[44px] p-2.5 rounded-xl border border-white/10 flex items-center justify-center transition-all ${
                   isCurrentMonthOrPast
-                    ? "opacity-25 cursor-not-allowed bg-transparent text-[#8C9B90]"
-                    : "bg-white hover:bg-[#1B3B2B] hover:text-white active:scale-95 text-[#14221A] cursor-pointer shadow-2xs"
+                    ? "opacity-25 cursor-not-allowed bg-transparent text-zinc-600"
+                    : "bg-white/[0.06] hover:bg-[#1B3B2B] hover:border-[#C29D59]/50 active:scale-95 text-white cursor-pointer shadow-2xs"
                 }`}
                 aria-label="Mês anterior"
               >
                 <ChevronLeft className="w-4.5 h-4.5" />
               </button>
 
-              <div className="text-center font-serif text-base sm:text-lg font-bold text-[#14221A] capitalize">
-                {MONTHS_PT[month]} <span className="text-[#9A7836] font-sans font-semibold text-sm">{year}</span>
+              <div className="text-center font-serif text-base sm:text-lg font-bold text-white capitalize">
+                {MONTHS_PT[month]} <span className="text-[#E6C994] font-sans font-semibold text-sm">{year}</span>
               </div>
 
               <button
                 type="button"
                 onClick={handleNextMonth}
-                className="min-w-[44px] min-h-[44px] p-2.5 rounded-xl bg-white hover:bg-[#1B3B2B] hover:text-white active:scale-95 text-[#14221A] border border-[#14221A]/10 flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+                className="min-w-[44px] min-h-[44px] p-2.5 rounded-xl bg-white/[0.06] hover:bg-[#1B3B2B] hover:border-[#C29D59]/50 active:scale-95 text-white border border-white/10 flex items-center justify-center transition-all cursor-pointer shadow-2xs"
                 aria-label="Próximo mês"
               >
                 <ChevronRight className="w-4.5 h-4.5" />
@@ -407,7 +407,7 @@ export function DateRangeModal({
             </div>
 
             {/* Weekdays Header */}
-            <div className="grid grid-cols-7 gap-1 text-center py-1 text-[11px] font-semibold text-[#5E7165] uppercase">
+            <div className="grid grid-cols-7 gap-1 text-center py-1 text-[11px] font-semibold text-zinc-400 uppercase">
               {["D", "S", "T", "Q", "Q", "S", "S"].map((wd, i) => (
                 <div key={i} className="py-1">
                   {wd}
@@ -427,7 +427,7 @@ export function DateRangeModal({
                   return (
                     <div
                       key={idx}
-                      className="h-10 flex items-center justify-center text-[#8C9B90]/35 text-xs select-none"
+                      className="h-10 flex items-center justify-center text-zinc-700 text-xs select-none"
                     >
                       {day}
                     </div>
@@ -438,7 +438,7 @@ export function DateRangeModal({
                   return (
                     <div
                       key={idx}
-                      className="h-10 flex items-center justify-center text-[#8C9B90]/40 text-xs select-none cursor-not-allowed"
+                      className="h-10 flex items-center justify-center text-zinc-600/40 text-xs select-none cursor-not-allowed"
                     >
                       {day}
                     </div>
@@ -447,7 +447,7 @@ export function DateRangeModal({
 
                 return (
                   <div key={idx} className="relative h-10 p-0 flex items-center justify-center">
-                    {/* Continuous range highlight background strip in soft champagne */}
+                    {/* Continuous range highlight background strip */}
                     {isInRange && (
                       <div className="absolute inset-y-1 inset-x-0 bg-[#C29D59]/20 z-0" />
                     )}
@@ -464,10 +464,10 @@ export function DateRangeModal({
                       onClick={() => handleDayClick(iso)}
                       className={`relative z-10 w-9.5 h-9.5 rounded-full flex items-center justify-center text-xs transition-all cursor-pointer active:scale-90 ${
                         isCheckIn || isCheckOut
-                          ? "bg-[#1B3B2B] text-white font-bold shadow-md scale-105 ring-2 ring-[#C29D59]/70"
+                          ? "bg-[#C29D59] text-[#050B07] font-extrabold shadow-lg scale-105 ring-2 ring-[#E6C994]"
                           : isInRange
-                          ? "text-[#1B3B2B] font-bold hover:bg-[#C29D59]/30"
-                          : "text-[#14221A] font-medium hover:bg-[#1B3B2B]/10 hover:text-[#1B3B2B]"
+                          ? "text-[#E6C994] font-bold hover:bg-[#C29D59]/30"
+                          : "text-zinc-200 font-medium hover:bg-white/10 hover:text-white"
                       }`}
                     >
                       {day}
@@ -477,15 +477,15 @@ export function DateRangeModal({
               })}
             </div>
 
-            {/* Confirm CTA Button in Deep Forest Pine & Gold */}
-            <div className="mt-5 pt-3.5 border-t border-[#14221A]/8">
+            {/* Confirm CTA Button in Gold Accent */}
+            <div className="mt-5 pt-3.5 border-t border-white/10">
               <button
                 type="button"
                 onClick={handleConfirm}
-                className="w-full min-h-[48px] flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-[#1B3B2B] hover:bg-[#142E20] active:bg-[#0F2318] text-[#FAF7F2] font-bold text-sm shadow-[0_10px_25px_rgba(27,59,43,0.25)] hover:shadow-[0_15px_30px_rgba(27,59,43,0.35)] transition-all cursor-pointer active:scale-[0.98]"
+                className="w-full min-h-[48px] flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-[#C29D59] hover:bg-[#D4AF67] active:bg-[#B38F4D] text-[#050B07] font-bold text-sm shadow-[0_10px_30px_rgba(194,157,89,0.35)] hover:shadow-[0_15px_40px_rgba(194,157,89,0.5)] transition-all cursor-pointer active:scale-[0.98]"
               >
                 <span>Confirmar Datas ({formatReadableDate(tempCheckIn)} — {formatReadableDate(tempCheckOut)})</span>
-                <ArrowRight className="w-4 h-4 text-[#C29D59] stroke-[2.5]" />
+                <ArrowRight className="w-4 h-4 text-[#050B07] stroke-[2.5]" />
               </button>
             </div>
           </motion.div>

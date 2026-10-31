@@ -79,7 +79,7 @@ export function LocationSection() {
   return (
     <section
       id="localizacao"
-      className="relative py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-transparent overflow-hidden"
+      className="relative py-12 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 bg-transparent overflow-hidden"
     >
       {/* Warm ambient glows for comfortable visual depth */}
       <div className="absolute top-1/4 -right-16 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(194,157,89,0.1)_0%,transparent_70%)] pointer-events-none" />
@@ -226,14 +226,15 @@ export function LocationSection() {
                 </div>
               </div>
 
-              {/* Reference note */}
-              <div className="mt-5 pt-4 border-t border-white/10 flex items-start gap-2.5 text-sm text-zinc-300">
-                <span className="text-[#E6C994] font-bold shrink-0">
-                  📌 Referência local:
+              {/* Reference note — Full width on mobile to avoid narrow squashed text */}
+              <div className="mt-4 sm:mt-5 pt-3.5 sm:pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2.5 text-xs sm:text-sm text-zinc-300">
+                <span className="text-[#E6C994] font-bold shrink-0 inline-flex items-center gap-1.5">
+                  <span>📌</span>
+                  <span>Referência local:</span>
                 </span>
-                <span className="leading-relaxed font-light">
+                <p className="leading-relaxed font-light text-zinc-300">
                   Siga pela Estrada Principal do Sana no sentido Boa Sorte. Em apenas 2 km a partir do centrinho histórico você chega à pousada, com entrada privativa à beira do rio e estacionamento seguro.
-                </span>
+                </p>
               </div>
             </div>
 
@@ -343,37 +344,48 @@ export function LocationSection() {
 
           {/* Right Column: Interactive Map Experience */}
           <div className="lg:col-span-6 flex flex-col">
-            <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border border-[#C29D59]/35 shadow-[0_25px_60px_rgba(0,0,0,0.6)] bg-black/60 flex-1 flex flex-col h-[440px] sm:h-[500px] lg:h-full lg:min-h-[600px]">
-              {/* Map View Mode Switcher */}
-              <div className="absolute top-4 right-4 z-20 flex items-center gap-2 pointer-events-none">
-                <div className="flex items-center gap-1 p-1 rounded-2xl bg-[#0A140F]/90 backdrop-blur-xl border border-[#C29D59]/40 shadow-lg pointer-events-auto">
+            <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border border-[#C29D59]/35 shadow-[0_25px_60px_rgba(0,0,0,0.6)] bg-[#07100A] flex-1 flex flex-col h-[460px] sm:h-[520px] lg:h-full lg:min-h-[580px]">
+              
+              {/* App Chrome Top Header Bar — Integrated Clean Map View Mode Switcher */}
+              <div className="px-3.5 sm:px-4 py-2 sm:py-2.5 bg-[#0A140F] border-b border-white/10 flex items-center justify-between gap-2 z-10 shrink-0">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <span className="text-xs font-semibold text-[#E6C994] truncate">
+                    GPS Interativo • Sana, RJ
+                  </span>
+                </div>
+
+                {/* Segmented Switcher (Compact, No Collisions) */}
+                <div className="flex items-center gap-1 p-0.5 rounded-xl bg-white/[0.06] border border-white/10 shrink-0 shadow-inner">
                   <button
                     type="button"
                     onClick={() => setMapMode("standard")}
-                    className={`min-h-[40px] px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer active:scale-95 ${
+                    className={`min-h-[30px] px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer active:scale-95 flex items-center gap-1 ${
                       mapMode === "standard"
-                        ? "bg-[#C29D59] text-[#050B07] shadow-sm"
+                        ? "bg-[#C29D59] text-[#050B07] shadow-xs"
                         : "text-zinc-300 hover:text-white"
                     }`}
                   >
-                    🗺️ Mapa
+                    <span>🗺️</span>
+                    <span>Mapa</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setMapMode("satellite")}
-                    className={`min-h-[40px] px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer active:scale-95 ${
+                    className={`min-h-[30px] px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer active:scale-95 flex items-center gap-1 ${
                       mapMode === "satellite"
-                        ? "bg-[#C29D59] text-[#050B07] shadow-sm"
+                        ? "bg-[#C29D59] text-[#050B07] shadow-xs"
                         : "text-zinc-300 hover:text-white"
                     }`}
                   >
-                    🛰️ Satélite
+                    <span>🛰️</span>
+                    <span>Satélite</span>
                   </button>
                 </div>
               </div>
 
               {/* Map Frame */}
-              <div className="w-full h-full flex-1 relative bg-black/40">
+              <div className="w-full flex-1 relative bg-black/40 min-h-[260px]">
                 <iframe
                   key={mapMode}
                   src={mapEmbedUrl}
@@ -387,20 +399,20 @@ export function LocationSection() {
                 />
               </div>
 
-              {/* Bottom HUD Bar — Frosted Glass Luxury Pill */}
-              <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0A140F]/95 via-[#0A140F]/90 to-[#050B07]/95 backdrop-blur-xl border-t border-[#C29D59]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              {/* Bottom HUD Bar — Compact Frosted Glass Footer */}
+              <div className="p-3.5 sm:p-4 bg-gradient-to-r from-[#0A140F]/95 via-[#0A140F]/90 to-[#050B07]/95 backdrop-blur-xl border-t border-[#C29D59]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 shrink-0">
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#C29D59] animate-pulse shrink-0" />
-                    <span className="text-sm sm:text-base font-serif font-bold text-white truncate block">
+                    <span className="w-2 h-2 rounded-full bg-[#C29D59] animate-pulse shrink-0" />
+                    <span className="text-xs sm:text-sm font-serif font-bold text-white truncate block">
                       Pousada Recanto dos Pássaros
                     </span>
                     <span className="px-2 py-0.5 rounded-full bg-[#1B3B2B] text-[10px] font-bold text-[#E6C994] border border-[#C29D59]/30 shrink-0">
                       ★ 4.6 no Google
                     </span>
                   </div>
-                  <span className="text-xs text-zinc-300 truncate block mt-0.5 font-light">
-                    Estrada Principal do Sana, Boa Sorte · Sana, Macaé — RJ
+                  <span className="text-[11px] sm:text-xs text-zinc-300 truncate block mt-0.5 font-light">
+                    Estrada Principal do Sana, Boa Sorte · Macaé — RJ
                   </span>
                 </div>
 
@@ -408,9 +420,9 @@ export function LocationSection() {
                   href={GOOGLE_MAPS_OFFICIAL_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto min-h-[44px] px-4 py-2.5 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] text-xs font-bold shadow-md transition-all flex items-center justify-center gap-1.5 shrink-0 active:scale-95"
+                  className="w-full sm:w-auto min-h-[38px] px-4 py-2 rounded-full bg-[#C29D59] hover:bg-[#D4AF67] text-[#050B07] text-xs font-bold shadow-md transition-all flex items-center justify-center gap-1.5 shrink-0 active:scale-95"
                 >
-                  <Navigation className="w-4 h-4 text-[#050B07]" />
+                  <Navigation className="w-3.5 h-3.5 text-[#050B07]" />
                   <span>Traçar Rota Oficial</span>
                 </a>
               </div>

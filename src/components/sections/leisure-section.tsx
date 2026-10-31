@@ -151,8 +151,8 @@ export function LeisureSection() {
                 transition={{ duration: 0.55, delay: idx * 0.1 }}
                 className="rounded-[2rem] sm:rounded-[2.4rem] bg-gradient-to-b from-[#0A140F]/90 via-[#0A140F]/80 to-[#050B07]/90 border border-[#C29D59]/30 hover:border-[#C29D59]/60 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_50px_rgba(194,157,89,0.18)] hover:-translate-y-1 transition-all duration-400 flex flex-col sm:flex-row group backdrop-blur-2xl"
               >
-                {/* Photo Left/Top */}
-                <div className="relative h-56 sm:h-auto sm:w-2/5 shrink-0 overflow-hidden bg-black/40">
+                {/* Photo Left/Top with Integrated Icon Badges */}
+                <div className="relative h-52 sm:h-auto sm:w-2/5 shrink-0 overflow-hidden bg-black/40">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -161,21 +161,26 @@ export function LeisureSection() {
                     sizes="(max-width: 768px) 100vw, 300px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/80 via-transparent to-black/30" />
-                  <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#0A140F]/90 text-[#E6C994] border border-[#C29D59]/40 shadow-sm backdrop-blur-md">
-                    {item.tag}
+                  
+                  {/* Category Pill with Icon */}
+                  <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#0A140F]/90 text-[#E6C994] border border-[#C29D59]/40 shadow-sm backdrop-blur-md">
+                    <Icon className="w-3.5 h-3.5 text-[#C29D59] shrink-0" />
+                    <span>{item.tag}</span>
                   </span>
+
+                  {/* Sleek Icon Badge Placed Directly on the Image */}
+                  <div className="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-[#0A140F]/85 border border-[#C29D59]/40 flex items-center justify-center text-[#E6C994] shadow-md backdrop-blur-md">
+                    <Icon className="w-4 h-4 text-[#C29D59]" />
+                  </div>
                 </div>
 
-                {/* Content Right/Bottom */}
-                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between text-left space-y-3">
+                {/* Content Right/Bottom — Streamlined without duplicate icon row */}
+                <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between text-left space-y-2">
                   <div>
-                    <div className="w-10 h-10 rounded-2xl bg-[#C29D59]/15 border border-[#C29D59]/30 flex items-center justify-center text-[#E6C994] mb-3">
-                      <Icon className="w-5 h-5 text-[#C29D59]" />
-                    </div>
-                    <h3 className="font-serif font-bold text-xl text-white group-hover:text-[#E6C994] transition-colors">
+                    <h3 className="font-serif font-bold text-lg sm:text-xl text-white group-hover:text-[#E6C994] transition-colors leading-snug">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-zinc-300 text-sm font-light leading-relaxed">
+                    <p className="mt-1.5 text-zinc-300 text-xs sm:text-sm font-light leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

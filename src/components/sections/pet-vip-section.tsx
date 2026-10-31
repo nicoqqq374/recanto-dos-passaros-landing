@@ -52,13 +52,13 @@ export function PetVipSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10" />
 
-              {/* Text Container — Restrained to left 54% so it NEVER overlaps with the floating card */}
-              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 max-w-[58%] sm:max-w-[52%] z-10 text-white text-left">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#C29D59]/40 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#E6C994] mb-2 shadow-sm">
+              {/* Text Container — Restrained to left 52% on mobile so it NEVER overlaps with the floating photo */}
+              <div className="absolute bottom-3 left-3 sm:bottom-6 sm:left-6 max-w-[52%] sm:max-w-[50%] z-10 text-white text-left">
+                <span className="inline-flex items-center gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-black/70 backdrop-blur-md border border-[#C29D59]/40 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-[#E6C994] mb-1.5 sm:mb-2 shadow-sm">
                   <Heart className="w-3 h-3 text-[#E6C994] fill-[#E6C994]" />
                   <span>100% Pet Friendly VIP</span>
                 </span>
-                <p className="font-serif text-base sm:text-xl lg:text-2xl font-bold leading-tight drop-shadow-md text-white">
+                <p className="font-serif text-[13px] xs:text-sm sm:text-xl lg:text-2xl font-bold leading-snug drop-shadow-md text-white">
                   Liberdade e ar puro para quem não viaja sem o pet
                 </p>
                 <p className="hidden md:block text-xs text-zinc-300 mt-1.5 font-light leading-relaxed">
@@ -67,8 +67,8 @@ export function PetVipSection() {
               </div>
             </div>
 
-            {/* Overlapping real photo: Dog with LOVE marquee */}
-            <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-4 w-36 sm:w-48 md:w-52 aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_50px_rgba(0,0,0,0.85)] border-2 border-[#C29D59]/50 group/pet hover:scale-105 transition-all duration-500 z-20 bg-[#050B07]">
+            {/* Overlapping real photo: Dog with LOVE marquee — compact on mobile to never overlap copy */}
+            <div className="absolute -bottom-3 -right-1 sm:-bottom-6 sm:-right-4 w-28 xs:w-32 sm:w-48 md:w-52 aspect-[3/4] rounded-xl sm:rounded-3xl overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.85)] border-2 border-[#C29D59]/50 group/pet hover:scale-105 transition-all duration-500 z-20 bg-[#050B07]">
               <Image
                 src="/recanto/pet-love-jardim.jpg"
                 alt="Cachorrinho descansando com almofada e letreiro LOVE no jardim da Pousada Recanto dos Pássaros"

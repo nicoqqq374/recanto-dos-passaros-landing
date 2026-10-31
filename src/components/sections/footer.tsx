@@ -22,7 +22,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-[#050B07]/90 backdrop-blur-2xl border-t border-[#C29D59]/25 pt-8 sm:pt-10 pb-32 sm:pb-24 px-4 sm:px-6 lg:px-8 text-zinc-300 text-xs sm:text-[13px] relative overflow-hidden">
+    <footer className="bg-[#050B07]/90 backdrop-blur-2xl border-t border-[#C29D59]/25 pt-8 sm:pt-10 pb-6 sm:pb-6 px-4 sm:px-6 lg:px-8 text-zinc-300 text-xs sm:text-[13px] relative overflow-hidden">
       {/* Subtle top gold accent glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 max-w-4xl h-px bg-gradient-to-r from-transparent via-[#C29D59]/50 to-transparent pointer-events-none" />
 

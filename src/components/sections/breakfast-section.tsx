@@ -132,30 +132,31 @@ export function BreakfastSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-6 relative"
+            className="lg:col-span-6 relative flex flex-col"
           >
-            {/* Main Picture Frame */}
-            <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden aspect-[4/3] sm:aspect-[4/5] min-h-[440px] sm:min-h-[540px] shadow-[0_25px_60px_rgba(0,0,0,0.65)] border-2 border-white/20 group bg-black/40">
+            {/* Main Picture Frame — Beautifully proportioned to show the full buffet without cutoffs */}
+            <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden aspect-[4/5] sm:aspect-[4/5] w-full min-h-[420px] sm:min-h-[540px] shadow-[0_25px_60px_rgba(0,0,0,0.65)] border-2 border-white/20 group bg-black/40">
               <Image
                 src="/recanto/cafe-roca-buffet.jpg"
                 alt="Buffet completo de café da manhã colonial na Pousada Recanto dos Pássaros no Sana"
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                className="object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/20" />
+              {/* Subtle ambient lighting vignette that leaves the food crisp and bright */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
 
               {/* Top Pill: Included in all stays */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#0A140F]/90 text-[#E6C994] border border-[#C29D59]/45 shadow-lg backdrop-blur-md">
+              <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10">
+                <span className="px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold bg-[#0A140F]/90 text-[#E6C994] border border-[#C29D59]/45 shadow-lg backdrop-blur-md">
                   Incluso em Todas as Diárias
                 </span>
               </div>
 
-              {/* Bottom Card: Sensory Quote */}
-              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 text-white text-left z-10">
-                <div className="p-4 sm:p-5 rounded-2xl bg-[#0A140F]/85 backdrop-blur-xl border border-[#C29D59]/35 shadow-xl">
+              {/* Desktop Floating Sensory Quote (inside photo on sm+) */}
+              <div className="hidden sm:block absolute bottom-6 left-6 right-6 text-white text-left z-10">
+                <div className="p-5 rounded-2xl bg-[#0A140F]/85 backdrop-blur-xl border border-[#C29D59]/35 shadow-xl">
                   <div className="flex items-center gap-1.5 text-[#E6C994] mb-1.5 text-xs font-semibold">
                     <Coffee className="w-3.5 h-3.5" />
                     <span>Experiência Matinal Inesquecível</span>
@@ -167,6 +168,22 @@ export function BreakfastSection() {
                     Avaliação 10/10 no Booking.com • Casal de hóspedes
                   </span>
                 </div>
+              </div>
+            </div>
+
+            {/* Mobile Sensory Quote (sits neatly below the photo so the entire buffet table is 100% visible) */}
+            <div className="sm:hidden mt-3.5 text-white text-left">
+              <div className="p-4 rounded-2xl bg-[#0A140F]/90 backdrop-blur-xl border border-[#C29D59]/35 shadow-lg">
+                <div className="flex items-center gap-1.5 text-[#E6C994] mb-1 text-xs font-semibold">
+                  <Coffee className="w-3.5 h-3.5" />
+                  <span>Experiência Matinal Inesquecível</span>
+                </div>
+                <p className="font-serif text-sm font-bold text-white leading-snug">
+                  &ldquo;O bolo de milho quentinho saindo do forno e o café no bule ouvindo o som do rio não têm preço.&rdquo;
+                </p>
+                <span className="text-[10px] text-zinc-300 mt-1 block font-light">
+                  Avaliação 10/10 no Booking.com • Casal de hóspedes
+                </span>
               </div>
             </div>
           </motion.div>

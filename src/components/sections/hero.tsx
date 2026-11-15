@@ -60,14 +60,14 @@ export function Hero() {
               className="space-y-3 pt-2"
             >
               {/* Primary Trust Badge (Booking Award) */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-[#C29D59]/45 shadow-xl text-xs text-white backdrop-blur-xl">
-                <div className="flex text-amber-400 text-xs tracking-tighter" aria-hidden="true">
+              <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3.5 py-2 sm:py-1.5 rounded-2xl sm:rounded-full bg-black/60 border border-[#C29D59]/45 shadow-xl text-xs text-white backdrop-blur-xl max-w-full">
+                <div className="flex text-amber-400 text-xs tracking-tighter shrink-0" aria-hidden="true">
                   {"★".repeat(5)}
                 </div>
-                <span className="font-bold text-[#E6C994]">9,4 para Casais</span>
-                <span className="text-zinc-500">•</span>
-                <span className="text-zinc-200 font-medium">9.1 no Booking</span>
-                <span className="text-zinc-400 text-[11px] font-normal">(+400 avaliações)</span>
+                <span className="font-bold text-[#E6C994] whitespace-nowrap">9,4 para Casais</span>
+                <span className="text-zinc-500 hidden sm:inline">•</span>
+                <span className="text-zinc-200 font-medium whitespace-nowrap">9.1 no Booking</span>
+                <span className="text-zinc-400 text-[11px] font-normal whitespace-nowrap">(+400 avaliações)</span>
               </div>
 
               {/* 4 Pillars Grid: 4 in a line on desktop, 2x2 on mobile */}

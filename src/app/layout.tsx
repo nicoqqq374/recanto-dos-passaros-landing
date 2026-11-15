@@ -86,7 +86,6 @@ export default function RootLayout({
         <link rel="icon" href="/icon-16.png?v=4" type="image/png" sizes="16x16" />
         <link rel="icon" href="/favicon.ico?v=4" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4" sizes="180x180" />
-        <link rel="manifest" href="/manifest.webmanifest?v=4" />
       </head>
       <body className="font-sans bg-[#050B07] text-white antialiased selection:bg-[#C29D59] selection:text-[#050B07]">
         <BookingProvider>

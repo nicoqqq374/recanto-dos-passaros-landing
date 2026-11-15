@@ -114,9 +114,9 @@ export function BookingSection() {
           className="scroll-mt-20 sm:scroll-mt-24 rounded-[2rem] sm:rounded-[2.2rem] p-2 sm:p-3 bg-[#050B07]/90 border border-[#C29D59]/35 shadow-[0_25px_60px_rgba(0,0,0,0.7)] backdrop-blur-2xl overflow-hidden transition-all duration-300"
         >
           {/* App Chrome Top Bar */}
-          <div className="rounded-t-2xl px-3.5 sm:px-4 py-2.5 sm:py-3 bg-[#0A140F] border-b border-white/10 flex items-center justify-between gap-2">
+          <div className="rounded-t-2xl px-2.5 sm:px-4 py-2 sm:py-3 bg-[#0A140F] border-b border-white/10 flex items-center justify-between gap-2">
             {/* Left: Window Dots & Status */}
-            <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-3 shrink-0">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
@@ -124,30 +124,30 @@ export function BookingSection() {
               </div>
 
               {/* Secure App Address Chip */}
-              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-[11px] text-zinc-300 font-mono">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-[11px] text-zinc-300 font-mono">
                 <Lock className="w-3 h-3 text-[#C29D59]" />
                 <span>simplereservas.app/{TENANT_SLUG}</span>
               </div>
             </div>
 
             {/* Center: Live Status Indicator or Synchronized Filter */}
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1B3B2B] border border-[#C29D59]/35 text-[#E6C994] text-xs font-semibold">
-              <span className="relative flex h-2 w-2">
+            <div className="min-w-0 flex-1 sm:flex-none flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-[#1B3B2B] border border-[#C29D59]/35 text-[#E6C994] text-[11px] sm:text-xs font-semibold">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C29D59] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C29D59]" />
               </span>
-              <span className="truncate max-w-[180px] sm:max-w-none">
+              <span className="truncate">
                 {selectedRoomName ? `Sincronizado: ${selectedRoomName}` : "Calendário & Reservas ao Vivo"}
               </span>
             </div>
 
             {/* Right: Actions (Reload & Expand Fullscreen) */}
-            <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
               <button
                 type="button"
                 onClick={handleReload}
                 disabled={isLoading}
-                className="min-h-[40px] min-w-[40px] px-2.5 sm:px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] active:scale-95 text-zinc-300 hover:text-white border border-white/10 transition-all text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+                className="min-h-[38px] min-w-[38px] sm:min-h-[40px] sm:min-w-[40px] px-2 sm:px-3.5 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] active:scale-95 text-zinc-300 hover:text-white border border-white/10 transition-all text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
                 title="Recarregar calendário"
                 aria-label="Recarregar calendário"
               >
@@ -160,8 +160,9 @@ export function BookingSection() {
               <button
                 type="button"
                 onClick={() => openBooking()}
-                className="min-h-[40px] px-3 sm:px-3.5 py-2 rounded-xl bg-[#C29D59]/20 hover:bg-[#C29D59]/30 active:scale-95 text-[#E6C994] hover:text-white border border-[#C29D59]/40 transition-all text-xs font-semibold flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                className="min-h-[38px] min-w-[38px] sm:min-h-[40px] px-2.5 sm:px-3.5 py-2 rounded-xl bg-[#C29D59]/20 hover:bg-[#C29D59]/30 active:scale-95 text-[#E6C994] hover:text-white border border-[#C29D59]/40 transition-all text-xs font-semibold flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
                 title="Abrir em tela cheia"
+                aria-label="Abrir em tela cheia"
               >
                 <Maximize2 className="w-4 h-4 text-[#C29D59]" />
                 <span className="hidden sm:inline">Tela Cheia</span>
